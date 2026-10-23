@@ -19,10 +19,13 @@ export default function App() {
 
   const backendUrl = process.env.REACT_APP_API_URL || "http://localhost:8000";
 
-  const fetchData = async () => {
+
+
+    const fetchData = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`${backendUrl}/api/wind-data?start_date=${startDate}&end_date=${endDate}`);
+      const apiUrl = backendUrl || 'https://uk-energy-x71.onrender.com';
+      const res = await fetch(`${apiUrl}/api/wind-data?start_date=${startDate}&end_date=${endDate}`);
       const json = await res.json();
       setData(json);
     } catch (err) {
