@@ -24,8 +24,7 @@ export default function App() {
     const fetchData = async () => {
     setLoading(true);
     try {
-      const apiUrl = backendUrl || 'https://uk-energy-x71.onrender.com';
-      const res = await fetch(`${apiUrl}/api/wind-data?start_date=${startDate}&end_date=${endDate}`);
+      const res = await fetch(`https://uk-energy-x71.onrender.com/api/wind-data?start_date=${startDate}&end_date=${endDate}`);
       const json = await res.json();
       setData(json);
     } catch (err) {
